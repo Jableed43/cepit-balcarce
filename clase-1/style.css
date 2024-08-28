@@ -1,0 +1,31 @@
+h1, h2, h3{
+    color: #b13232;
+    text-align: center;
+}
+
+p{
+    color: rgb(128, 0, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.verde{
+    color: green;
+}
+
+#violeta{
+    color: violet
+}
+
+img{
+    width: 300px;
+    height: 200px;
+
+}
+
+body{
+    background-color: burlywood;
+}
