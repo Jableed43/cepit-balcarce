@@ -77,41 +77,125 @@ function mostrarCitas(): void {
   }
 }
 
+// while (true) {
+//   console.log(
+//     "\n1. Registrar Cita\n2. Cancelar Cita\n3. Mostrar Citas\n4. Salir "
+//   );
+
+//   const option = rls.questionInt("Seleccione una opcion: ");
+
+//   switch (option) {
+//     case 1:
+//       const nombre = rls.question("Ingrese nombre del paciente: ");
+//       const apellido = rls.question("Ingrese apellido del paciente: ");
+//       const dni = rls.questionInt("Ingrese dni del paciente: ");
+//       const fecha = rls.question(
+//         "Ingrese fecha de la cita (formato DD/MM/AAAA): "
+//       );
+//       registrarCita(nombre, apellido, dni, fecha);
+//       break;
+
+//     case 2:
+//       const dniPaciente = rls.questionInt(
+//         "Ingrese el dni del paciente cuya cita desea cancelar"
+//       );
+//       cancelarCita(dniPaciente);
+//       break;
+
+//     case 3:
+//       mostrarCitas();
+//       break;
+
+//     case 4:
+//       console.log("Saliendo del programa");
+//       process.exit(0);
+//       break;
+//     default:
+//       console.log("Opcion inválida");
+//       break;
+//   }
+// }
+
+// Una tienda de productos electrónicos necesita un sistema para registrar su inventario. El usuario ingresará los nombres de productos y sus respectivas cantidades en stock. Luego, podrá buscar un producto por su nombre y obtener su cantidad disponible. Si el producto no existe, el sistema debe indicarlo. Además, debe permitir actualizar la cantidad en stock de un producto existente.
+
+// - Entidad producto, definir sus datos
+// Nombre, cantidad
+
+//Creamos nuestro propio tipo de dato
+interface Producto {
+  nombre: string;
+  cantidad: number;
+}
+
+//Manejamos un inventario de productos
+let inventario: Producto[] = [];
+
+//Agregar el producto
+function agregarProducto(nombre: string, cantidad: number) {
+  let productoExistente: Producto | undefined = undefined;
+
+  for (let index = 0; index < inventario.length; index++) {
+    let nombreLower = nombre.toLowerCase();
+    if (inventario[index].nombre === nombreLower) {
+      productoExistente = inventario[index];
+      console.log("Producto existente");
+      productoExistente.cantidad += cantidad;
+      return;
+    }
+  }
+
+  inventario.push({ nombre: nombre, cantidad: cantidad });
+  console.log("El producto ha sido añadido con exito");
+  return;
+}
+
+function mostrarInventario(): void {
+  for (let index = 0; index < inventario.length; index++) {
+    console.log(
+      `${inventario[index].nombre}: ${inventario[index].cantidad} unidades`
+    );
+  }
+}
+
 while (true) {
   console.log(
-    "\n1. Registrar Cita\n2. Cancelar Cita\n3. Mostrar Citas\n4. Salir "
+    "\n1. Agregar producto\n2. Buscar producto\n3. Actualizar stock\n4. Mostrar inventario\n5. Salir"
   );
-
-  const option = rls.questionInt("Seleccione una opcion: ");
+  const option = rls.questionInt("Seleccione una opción: ");
 
   switch (option) {
     case 1:
-      const nombre = rls.question("Ingrese nombre del paciente: ");
-      const apellido = rls.question("Ingrese apellido del paciente: ");
-      const dni = rls.questionInt("Ingrese dni del paciente: ");
-      const fecha = rls.question(
-        "Ingrese fecha de la cita (formato DD/MM/AAAA): "
-      );
-      registrarCita(nombre, apellido, dni, fecha);
-      break;
+      const nombreAgregar = rls.question("Ingrese el nombre del producto");
+      const cantidadAgregar = rls.questionInt("Ingrese la cantidad en stock");
 
-    case 2:
-      const dniPaciente = rls.questionInt(
-        "Ingrese el dni del paciente cuya cita desea cancelar"
+      agregarProducto(nombreAgregar, cantidadAgregar);
+      console.log(
+        `Producto agregado ${nombreAgregar}, ${cantidadAgregar} unidades.`
       );
-      cancelarCita(dniPaciente);
       break;
 
     case 3:
-      mostrarCitas();
+      const nombreActualizar = rls.question(
+        "Ingrese el nombre del producto a actualizar"
+      );
+      const cantidadActualizar = rls.questionInt(
+        "Ingrese la cantidad para agregar al stock"
+      );
+      agregarProducto(nombreActualizar, cantidadActualizar);
+      console.log(`El producto ${nombreActualizar} ha sido actualizado`);
       break;
 
     case 4:
-      console.log("Saliendo del programa");
+      mostrarInventario();
+      break;
+
+    case 5:
+      console.log("saliendo del programa");
       process.exit(0);
       break;
+
     default:
-      console.log("Opcion inválida");
+      console.log("Opcion invalida");
       break;
   }
 }
