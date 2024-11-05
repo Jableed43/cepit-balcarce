@@ -1,4 +1,5 @@
 import fs from "fs";
+import internal from "stream";
 //file system
 
 //Valida y Chequea la existencia del archivo
@@ -76,3 +77,55 @@ export function guardar(path, data) {
   escribir(inventario, path);
   console.log("Producto guardado con ID", nuevoId);
 }
+
+//Buscar
+export function buscar(path,nombre){
+  let inventario = [];
+  inventario = leer(path);
+
+  console.log(inventario);
+
+  for(let i=0; i<inventario.length;i++){
+    if(inventario[i].nombre === nombre)
+      return inventario[i];
+  }
+  return null;
+}
+
+//Eliminar
+
+export function eliminar(path,nombre){
+  let inventario = [];
+  inventario = leer(path);
+  let nuevoInventario = [];
+  const producto = buscar(path,nombre);
+  if(producto){
+      for(let i=0;i<inventario.length;i++){
+        if(inventario[i].nombre != nombre)
+          nuevoInventario.push(inventario[i])
+      }
+      escribir(nuevoInventario,path);
+      return producto;
+  }
+  else  
+    return null
+}
+
+//Editar
+
+export function editar(path,nombre, productoEditado){
+  let inventario = leer(path);
+  let producto = buscar(path,nombre);
+  if(producto){
+    for(let i=0;i<inventario.length;i++){
+      if(nombre === inventario[i].nombre){
+        inventario[i] = {...inventario[i], ...productoEditado};
+        escribir(inventario,path);
+        return inventario[i];
+      }
+    }
+  }
+}
+
+
+

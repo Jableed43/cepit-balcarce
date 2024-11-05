@@ -2,8 +2,8 @@
   {
     "id": 1,
     "nombre": "pala",
-    "precio": 200,
-    "cantidad": 10
+    "precio": 12,
+    "cantidad": 100
   },
   {
     "id": 2,
