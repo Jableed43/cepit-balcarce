@@ -1,0 +1,42 @@
+body {
+  background-image: url(https://i.pinimg.com/474x/a8/eb/7e/a8eb7efbeab99a918a3dd05f58baa856.jpg);
+}
+
+body article.art-mapache img {
+  width: 400px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.img-big {
+  width: 800px;
+}
+
+article {
+  border: 3px solid royalblue;
+  margin: 5px;
+  background-color: rgb(208, 105, 105);
+}
+
+#texto-1 {
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #7d65c1;
+}
+
+#p1 {
+  color: yellow;
+}
+
+.p2 {
+  color: #ff0000;
+}
+
+.p2 {
+  color: blue;
+  background-color: gray;
+}
