@@ -1,6 +1,20 @@
+* {
+  font-family: cursive;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+  color: violet;
+}
+
+p {
+  margin: 6px;
+}
+
 .section-encabezado {
   display: flex;
-  height: 100px;
+  min-height: 70px;
   background-color: gray;
   border: black solid;
   border-radius: 8px;
@@ -32,6 +46,7 @@
 .div-menu-1,
 .div-menu-2 {
   color: white;
+  border: solid black;
 }
 
 .div-logo {
@@ -53,4 +68,129 @@
   max-width: 50vw;
   align-self: flex-end;
   width: 100%;
+}
+
+.section-3divs,
+.section-2divs {
+  gap: 18px;
+  display: flex;
+  margin-top: 2px;
+  justify-content: center;
+}
+
+.section-3divs div,
+.section-2divs div {
+  width: 32%;
+  border: solid black;
+  height: 240px;
+  border-radius: 10px;
+}
+
+/* ¿Como puedo darle color a cada uno de mis primeros tres divs de mi contenedor
+ que es de la clase .section-3divs? */
+
+.section-3divs {
+  div {
+    &:nth-child(1) {
+      background-color: rgb(141, 47, 47);
+    }
+    &:nth-child(2) {
+      background-color: rgb(36, 68, 109);
+    }
+    &:nth-child(3) {
+      background-color: rgb(57, 166, 68);
+    }
+  }
+}
+
+/* El calc permite calcular valores dinamicamente */
+/* Por ejemplo, nuestro primer hijo debe ser el doble de ancho que 2 divs que miden 32% más el tamaño del gap */
+.section-2divs :first-child {
+  width: calc(32% * 2 + 18px);
+}
+
+.section-2divs {
+  margin-top: 10px;
+}
+
+.section-2divs {
+  div {
+    &:nth-child(1) {
+      background-color: rgb(120, 9, 79);
+    }
+    &:nth-child(2) {
+      background-color: rgb(36, 68, 109);
+    }
+  }
+}
+
+.section-footer {
+  margin-top: 10px;
+  display: flex;
+  min-height: 70px;
+  background-color: rgb(68, 94, 189);
+  border: black solid;
+  border-radius: 8px;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.section-footer .div-elemento {
+  align-self: end;
+  border: solid black;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 8px;
+  padding: 0 8px;
+}
+
+.div-elemento {
+  display: flex;
+}
+
+/* Solo sirve para hijos directos */
+.div-ejemplo-1 > p {
+  color: red;
+}
+
+/* Este selector, toma elementos hermanos donde p y a comparten padre */
+p + a {
+  color: blue;
+  font-size: 40px;
+}
+
+.parrafo-enlace p ~ a {
+  color: black;
+}
+
+ul li::before {
+  content: "⬅";
+  color: black;
+}
+
+ul li::after {
+  content: "➡";
+  color: black;
+}
+
+input:disabled,
+button:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+button,
+li {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: green;
+}
+
+button:disabled:hover {
+  background-color: red;
 }
