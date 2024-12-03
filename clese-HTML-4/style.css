@@ -1,0 +1,15 @@
+.hidden{
+    display: none;
+}
+
+#tarea-lista{
+    margin-top: 20px;
+}
+
+#tarea-lista li{
+    background-color: aliceblue;
+    margin-bottom: 10px;
+    border: 1px;
+    border-radius: 5px;
+}
+
