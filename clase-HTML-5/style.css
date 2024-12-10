@@ -1,31 +1,32 @@
+:root{
+    --size:144px;
+    --separation:calc(var(--size) + 20px);
+}
+
 .box{
     position: relative;
-    width: 50px;
-    height: 50px;
+    background-color: greenyellow;
+    margin: var(--size) auto;
+}
+
+.box, .box::before, .box::after{
+    width: var(--size);
+    height: var(--size);
     display: block;
     border-radius: 50%;
-    background-color: greenyellow;
-    margin: 50px auto;
+}
+
+.box::before, .box::after{
+    content: "";
+    position: absolute;
 }
 
 .box::before{
-    content: "";
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    left: var(--separation);
     background-color: red;
-    position: absolute;
-    left: 50px;
 }
 
 .box::after{
-    content: "";
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    right: var(--separation);
     background-color:blue;
-    position: absolute;
-    right: 50px;
 }
