@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Lista Producto</h2>
+
+    <form id="form-producto">
+        <label for="producto">Nombre</label>
+        <input type="text" id="producto">
+
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad">
+
+        <label for="precio">Precio</label>
+        <input type="number" id="precio">  
+        
+        <button type="submit"> + </button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody id="lista-producto">
+            <!-- Toda la informacion que queremos generar dinamicamente -->
+        </tbody>
+    </table>
+    <script src="tabla.js"></script>
+
+
+</body>
+</html>
